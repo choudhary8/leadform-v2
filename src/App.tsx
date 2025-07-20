@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='sm:h-full'>
       <Navbar></Navbar>
-      <div className='sm:h-9/10'>
+      <div className='sm:h-[91%]'>
       <CustomerForm></CustomerForm>
       </div>
     </div>

@@ -59,7 +59,7 @@ export const CustomerForm=()=>{
 
 
     return (
-        <div className="sm:overflow-y-scroll sm:px-18 p-12 py-10 flex justify-center bg-[#f7e6da]">
+        <div className="sm:overflow-y-scroll h-full flex justify-center items-center bg-[#f7e6da]">
           <InfoTab onClick={()=>{setOpenCustomer(true)}}></InfoTab>
           <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={()=>{ setOpenCustomer(false); setOpenPerson(true)}} />
           <PersonDetails mobCode={mobCode} countriesNames={countriesNames} isOpen={openPerson} onClick={()=>{setOpenPerson(false)}} />

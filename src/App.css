@@ -1,0 +1,36 @@
+input,select{
+  border: 1px solid #f84a10;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  margin-top:0.45rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: white;
+}
+
+select{
+  padding: 1rem 0.25rem;
+}
+
+.mob{
+  width: fit-content;
+}
+
+
+label, .maroon{
+  color: #944104 !important;
+  font-weight: 500;
+}
+
+.actionInfo{
+  border-radius: 1rem;
+  border: 1px solid #f84a10;
+  padding: 0.75rem;
+  margin-top:1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+#consent{
+  width: 20px;
+}

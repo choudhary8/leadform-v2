@@ -16,7 +16,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
         <>
         {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0">
             <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-0"></div>
-            <form onSubmit={onClick} className="bg-white w-[43%] px-20 py-10 rounded-lg overflow-y-scroll h-4/5 z-10">
+            <form onSubmit={onClick} className="bg-white w-[41%] px-20 py-10 rounded-3xl shadow-xl overflow-y-scroll h-4/5 z-10">
                 <div className="text-center underline font-semibold text-md maroon m-2">Details of the person you wish to refer</div>
                 <label htmlFor="personFirstName">First Name<span className="text-red-500 font-thin">*</span></label>
                 <input type="text" id="personFirstName" placeholder="Please Enter First Name" required/>
@@ -36,7 +36,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
 
                 <label htmlFor="personMobile">Mobile Number<span className="text-red-500 font-thin">*</span></label>
                 <div id="personMobile" className="flex">
-                    <select name="" id="countryCode" className="w-8 mob" required>
+                    <select name="" id="countryCode" className="mob" required>
                         <option value={countrySelected}>{mobCode[countrySelected]}</option>
                     </select>
                     <input type="tel" name="personMobile" placeholder="Please Enter Mobile Number" required/>
@@ -67,7 +67,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
                     </div>
                 </div>
 
-                <button type="submit" className="bg-[#f27b1a] mt-12 px-14 py-4 rounded-md text-white">Sumbit</button>
+                <button type="submit" className="bg-[#f27b1a] mt-12 px-14 py-4 rounded-md text-white shadow-xl hover:bg-[#d36103] cursor-pointer">Sumbit</button>
             </form>
         </div>
         }

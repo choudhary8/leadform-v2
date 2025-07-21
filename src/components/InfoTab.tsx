@@ -3,7 +3,7 @@ interface propInterface{
 }
 export const InfoTab=({onClick}:propInterface)=>{
     return (
-        <div className="py-6 px-10 mt-24 sm:mt-0 rounded-lg bg-white">
+        <div className="py-8 px-20 mt-24 sm:mt-0 rounded-3xl shadow-xl bg-white">
             <div className="flex">
                 <div className="maroon font-bold text-2xl pb-1 border-b-1 mb-2">NRI Referral Form</div>
             </div>
@@ -63,7 +63,7 @@ export const InfoTab=({onClick}:propInterface)=>{
                 </div>
             </div>
             
-            <button onClick={onClick} className="py-4 px-10 bg-[#f27b1a] rounded-lg">Fill Form</button>
+            <button onClick={onClick} className="py-4 px-10 bg-[#f27b1a] rounded-lg shadow-xl hover:bg-[#d36103] cursor-pointer">Fill Form</button>
         </div>
     )
 }

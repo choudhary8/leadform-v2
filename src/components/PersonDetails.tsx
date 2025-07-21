@@ -54,9 +54,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
                 </select>
 
                 <div className="flex justify-between">
-                    {/* <div className="flex items-start mr-2 text-md"> */}
-                        <input type="radio" name="" id="consent" className="h-4 w-4" required/>
-                    {/* </div> */}
+                    <input type="radio" name="" id="consent" className="h-4 w-4" required/>
                     <div className="ml-2 text-sm">
                         <div>
                             By choosing to fill in the details of the person referred (“Referral”) here you authorize ICICI Bank to use, process or transfer the data as provided by you for the purposes of giving information to the Referral(s) regarding offers and promotions on products and services offered by ICICI Bank.

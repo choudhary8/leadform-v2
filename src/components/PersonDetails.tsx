@@ -7,7 +7,7 @@ interface propInterface{
     mobCode:detailsInterface,
     countriesNames:detailsInterface,
     isOpen:boolean,
-    onClick:()=>void
+    onClick:(event:React.FormEvent<HTMLFormElement>)=>void
 }
 
 export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterface)=>{
@@ -16,13 +16,13 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
         <>
         {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0">
             <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-0"></div>
-            <div className="bg-white w-[43%] px-20 py-10 rounded-lg overflow-y-scroll h-4/5 z-10">
+            <form onSubmit={onClick} className="bg-white w-[43%] px-20 py-10 rounded-lg overflow-y-scroll h-4/5 z-10">
                 <div className="text-center underline font-semibold text-md maroon m-2">Details of the person you wish to refer</div>
                 <label htmlFor="personFirstName">First Name<span className="text-red-500 font-thin">*</span></label>
                 <input type="text" id="personFirstName" placeholder="Please Enter First Name" required/>
 
                 <label htmlFor="personLastName">Last Name</label>
-                <input type="text" id="personLastName" placeholder="Please Enter Last Name" required/>
+                <input type="text" id="personLastName" placeholder="Please Enter Last Name"/>
 
                 <label htmlFor="personCountry">Country<span className="text-red-500 font-thin">*</span></label>
                 <select onChange={(event)=>{setCountrySelected(event.target.value)}} name="" id="personCountry" className="p-4" required>
@@ -67,8 +67,8 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
                     </div>
                 </div>
 
-                <button className="bg-[#f27b1a] mt-12 px-14 py-4 rounded-md text-white" onClick={onClick}>Sumbit</button>
-            </div>
+                <button type="submit" className="bg-[#f27b1a] mt-12 px-14 py-4 rounded-md text-white">Sumbit</button>
+            </form>
         </div>
         }
         </>

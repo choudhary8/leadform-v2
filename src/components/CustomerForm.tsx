@@ -61,8 +61,8 @@ export const CustomerForm=()=>{
     return (
         <div className="sm:overflow-y-scroll h-full flex justify-center items-center bg-[#f7e6da]">
           <InfoTab onClick={()=>{setOpenCustomer(true)}}></InfoTab>
-          <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={()=>{ setOpenCustomer(false); setOpenPerson(true)}} />
-          <PersonDetails mobCode={mobCode} countriesNames={countriesNames} isOpen={openPerson} onClick={()=>{setOpenPerson(false)}} />
+          <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={(event)=>{ event.preventDefault(); setOpenCustomer(false); setOpenPerson(true)}} />
+          <PersonDetails mobCode={mobCode} countriesNames={countriesNames} isOpen={openPerson} onClick={(event)=>{event.preventDefault(); setOpenPerson(false)}} />
         </div>
     )
 }

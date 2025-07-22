@@ -3,7 +3,7 @@ interface propInterface{
 }
 export const InfoTab=({onClick}:propInterface)=>{
     return (
-        <div className="py-8 px-20 mt-24 sm:mt-0 rounded-3xl shadow-xl bg-white">
+        <div className="py-8 sm:px-20 px-8 mt-24 sm:mt-0 rounded-3xl shadow-xl bg-white">
             <div className="flex">
                 <div className="maroon font-bold text-2xl pb-1 border-b-1 mb-2">NRI Referral Form</div>
             </div>
@@ -36,9 +36,9 @@ export const InfoTab=({onClick}:propInterface)=>{
                 </div>
                 <div className="p-2 px-6">
                     <div className="text-[#d75b15] font-semibold">
-                        Live Assistance from Team ICICI Bank!
+                        Live Assistance from Team My Bank!
                     </div>
-                    <div className="sm:w-2/3 text-sm">ICICI Bank will call and assist in filling the Account Opening form and KYC documentation.</div>
+                    <div className="sm:w-2/3 text-sm">My Bank will call and assist in filling the Account Opening form and KYC documentation.</div>
                 </div>
             </div>
 

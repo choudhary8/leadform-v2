@@ -11,7 +11,7 @@ export const CustomerDetails=({mobCode,isOpen,onClick}:propInterface)=>{
         <>
             {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0">
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
-                <form onSubmit={onClick}  className="bg-white w-1/2 px-20 py-10 rounded-3xl shadow-xl overflow-y-scroll z-30">
+                <form onSubmit={onClick}  className="bg-white sm:w-1/2 sm:px-20 px-8 h-4/5 py-10 rounded-3xl shadow-xl overflow-y-scroll z-30">
                     <div className="text-center underline font-semibold text-md maroon">Your Details</div>
                     <label htmlFor="customerFirstName">First Name<span className="text-red-500 font-thin">*</span></label>
                     <input type="text" id="customerFirstName" placeholder="Please Enter First Name" required/>

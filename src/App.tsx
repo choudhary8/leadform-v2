@@ -8,7 +8,7 @@ function App() {
     <div className='sm:h-full'>
       <Navbar></Navbar>
       <div className='sm:h-[91%]'>
-      <CustomerForm></CustomerForm>
+        <CustomerForm></CustomerForm>
       </div>
     </div>
   )

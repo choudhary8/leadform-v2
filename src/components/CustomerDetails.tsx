@@ -9,9 +9,9 @@ interface propInterface{
 export const CustomerDetails=({mobCode,isOpen,onClick}:propInterface)=>{
     return (
         <>
-            {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0">
+            {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0 z-2">
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
-                <form onSubmit={onClick}  className="bg-white sm:w-1/2 sm:px-20 px-8 h-[85%] py-10 pt-14 rounded-3xl shadow-xl overflow-y-scroll z-30">
+                <form onSubmit={onClick}  className="bg-white sm:w-1/2 sm:px-20 px-8 h-[85%] py-10 pt-14 rounded-3xl shadow-xl overflow-y-auto z-30">
                     <div className="text-center underline font-semibold text-md maroon sticky top-0 mb-4">
                         <div className="absolute -top-14 -left-20 -right-20 bg-gray-200  py-4">Your Details</div>
                     </div>

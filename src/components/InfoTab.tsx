@@ -8,7 +8,7 @@ interface propInterface{
 }
 export const InfoTab=({onClick}:propInterface)=>{
     return (
-        <div className="py-8 sm:px-20 px-8 mt-24 sm:mt-0 rounded-3xl shadow-xl bg-white">
+        <div className="py-8 sm:px-20 px-8 mt-24 sm:mt-0 rounded-3xl shadow-xl bg-white overflow-y-auto">
             <div className="flex">
                 <div className="maroon font-bold text-2xl pb-1 border-b-1 mb-2">NRI Referral Form</div>
             </div>
@@ -17,7 +17,7 @@ export const InfoTab=({onClick}:propInterface)=>{
             <div className="actionInfo my-2 relative">
                 <div className="flex items-center sm:w-2/3">
                     <div className="absolute -left-4 font-bold text-6xl py-4 bg-white text-[#f7a226]">1</div>
-                    <div className="pl-2 font-bold text-3xl">
+                    <div className="pl-4 font-bold text-3xl">
                     <FiPhoneCall/>
                         {/* <img src="https://buy.icicibank.com/ucj/media/iconPhone.a8ee7cc2.png" className="img-fluid ml-4" alt="icon1" width="35px" height="35px"></img> */}
                     </div>
@@ -38,7 +38,7 @@ export const InfoTab=({onClick}:propInterface)=>{
             </div>
             <div className="actionInfo my-2 flex items-center relative">
                 <div className="absolute -left-4 font-bold text-6xl py-4 bg-white text-[#f7a226]">2</div>
-                <div className="pl-2 font-bold text-3xl">
+                <div className="pl-4 font-bold text-3xl">
                 <FcAssistant/>
                     {/* <img src="https://buy.icicibank.com//ucj/media/iconAssistance.d4e4674b.png" className="img-fluid ml-4" alt="icon2" width="35px" height="35px"></img> */}
                 </div>
@@ -53,7 +53,7 @@ export const InfoTab=({onClick}:propInterface)=>{
             <div className="actionInfo my-2 relative">
                 <div className="flex items-center sm:w-2/3">
                     <div className="absolute -left-4 font-bold text-6xl py-4 bg-white text-[#f7a226]">3</div>
-                    <div className="pl-2 font-bold text-3xl">
+                    <div className="pl-4 font-bold text-3xl">
                     <AiOutlineDeliveredProcedure/>
                         {/* <img src="https://buy.icicibank.com/ucj/media/iconAccount.851bfc35.png" className="img-fluid ml-4" alt="icon3" width="35px" height="35px"></img> */}
                     </div>

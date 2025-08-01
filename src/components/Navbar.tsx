@@ -2,7 +2,7 @@ import { IoHomeOutline } from "react-icons/io5"
 
 export const Navbar=()=>{
     return (
-        <div className="fixed w-screen top-0 z-1 sm:static bg-[#c95d04]">
+        <div className="z-1 sticky w-screen top-0 bg-[#c95d04]">
             <div className="flex justify-between mx-3 items-center ">
                 {/* <img src="https://buy.icicibank.com/ucj/media/icici3.1ed6e4c0.webp" alt="ICICI Bank" className="mb-1"></img> */}
                 <div className="font-extrabold text-3xl text-blue-950 ">My Bank</div>

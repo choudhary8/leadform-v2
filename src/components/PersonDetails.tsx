@@ -14,9 +14,9 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
     const [countrySelected,setCountrySelected]=useState<string>('');
     return (
         <>
-        {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0">
+        {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0 z-2">
             <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
-            <form onSubmit={onClick} className="bg-white sm:w-[41%] sm:px-20 px-8 py-15 rounded-3xl shadow-xl overflow-y-scroll h-4/5 z-30">
+            <form onSubmit={onClick} className="bg-white sm:w-[41%] sm:px-20 px-8 py-15 rounded-3xl shadow-xl overflow-y-auto h-4/5 z-30">
                 <div className="text-center underline font-semibold text-md maroon sticky w-full  top-0 mb-4">
                     <div className="absolute -top-15 -left-20 -right-20 bg-gray-200  py-4">Details of the person you wish to refer</div>
                 </div>

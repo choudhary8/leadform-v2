@@ -7,9 +7,11 @@ export const MobileOtp=({isOpen,onClick}:Iparam)=>{
         <>
             {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0">
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
-                <div className="bg-white sm: h-[45%] rounded-3xl shadow-xl z-30">
-                    <div className="flex justify-center p-3 font-semibold bg-gray-200 rounded-t-3xl">OTP Verification</div>
-                    <div className="sm:px-20 px-8 py-5 overflow-y-scroll">
+                <div className="bg-white sm: sm:h-[45%] h-[55%] rounded-3xl pt-10 shadow-xl z-30 relative overflow-y-scroll">
+                    <div className="text-center underline font-semibold text-md maroon sticky top-0 mb-4 w-full">
+                        <div className="absolute -top-10 -left-20 -right-20 bg-gray-200  py-4">OTP Verification</div>
+                    </div>
+                    <div className="sm:px-20 px-8 py-5 w-full">
                         <div>We've sent an otp to your mobile number.</div>
                         <div>Please enter it below to verify and proceed.</div>
                         <label htmlFor="otp"></label>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { CustomerDetails } from "./CustomerDetails"
 import { PersonDetails } from "./PersonDetails"
 import { InfoTab } from "./InfoTab"
+import { MobileOtp } from "./MobileOtp"
 
 export const CustomerForm=()=>{
     interface nameInterface{
@@ -32,6 +33,7 @@ export const CustomerForm=()=>{
     const [countriesNames,setCountriesNames]=useState<detailsInterface>({});
     const [openCustomer,setOpenCustomer]=useState<boolean>(false);
     const [openPerson,setOpenPerson]=useState<boolean>(false);
+    const [openOtp,setOpenOtp]=useState<boolean>(false);
     
     useEffect(()=>{
         const dataFetch=async ()=>{
@@ -62,7 +64,8 @@ export const CustomerForm=()=>{
         <div className="sm:overflow-y-scroll h-full flex justify-center items-center">
             <div className="fixed top-15 right-0 left-0 h-1/2 bg-[#e9822e] -z-1"></div>
           <InfoTab onClick={()=>{setOpenCustomer(true)}}></InfoTab>
-          <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={(event)=>{ event.preventDefault(); setOpenCustomer(false); setOpenPerson(true)}} />
+          <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={(event)=>{ event.preventDefault(); setOpenCustomer(false); setOpenOtp(true)}} />
+          <MobileOtp isOpen={openOtp} onClick={(event)=>{ event.preventDefault(); setOpenOtp(false); setOpenPerson(true)}}/>
           <PersonDetails mobCode={mobCode} countriesNames={countriesNames} isOpen={openPerson} onClick={(event)=>{event.preventDefault(); setOpenPerson(false)}} />
         </div>
     )

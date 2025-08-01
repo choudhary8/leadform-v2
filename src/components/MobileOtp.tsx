@@ -1,8 +1,32 @@
+import { useEffect, useState } from "react"
+
 interface Iparam{
     isOpen:boolean,
     onClick:(event:React.MouseEvent<HTMLButtonElement>)=>void
 }
 export const MobileOtp=({isOpen,onClick}:Iparam)=>{
+    const [timer,setTimer]=useState<number>(10);
+    const [start,setStart]=useState<boolean>(false);
+    const [msg,setMsg]=useState<boolean>(true);
+    const [btn,setBtn]=useState<boolean>(false);
+
+    useEffect(()=>{setStart(isOpen);},[isOpen])
+    useEffect(()=>{if(timer<=0){setStart(false);setMsg(false); setBtn(true)}},[timer])
+    // if(timer<0)
+    // {
+        
+    //     console.log(timer);
+        
+    // }
+    useEffect(()=>{
+        const interval=setInterval(()=>{
+            if(start)
+            setTimer(prev=>(prev-1));
+        },1000)
+        return ()=>{
+            clearInterval(interval)
+        }
+    },[start])
     return (
         <>
             {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0 z-2">
@@ -16,7 +40,8 @@ export const MobileOtp=({isOpen,onClick}:Iparam)=>{
                         <div>Please enter it below to verify and proceed.</div>
                         <label htmlFor="otp"></label>
                         <input className="mt-10" type="text" name="" id="otp" placeholder="xxxx" required/>
-                        <div>Didn't receive the otp? Resend in 2:00</div>
+                        {msg && <div>Didn't receive the otp? Resend in {Math.trunc(timer/60)}:{timer%60}</div>}
+                        {btn && <div><button className="text-blue-500 hover:text-blue-800 cursor-pointer" onClick={()=>{setMsg(true); setBtn(false); setTimer(10); setStart(true)}}>Resend</button></div>}
                         {/* <div></div> */}
                         <button type="submit" onClick={onClick} className="mt-6 py-4 px-10 bg-[#f27b1a] rounded-lg shadow-xl hover:bg-[#d36103] cursor-pointer">Verify</button>
                     </div>

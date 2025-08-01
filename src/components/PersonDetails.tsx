@@ -14,7 +14,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
     const [countrySelected,setCountrySelected]=useState<string>('');
     return (
         <>
-        {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0 z-2">
+        {isOpen && <div className="person fixed flex justify-center top-0 items-center bottom-0 z-2">
             <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
             <form onSubmit={onClick} className="bg-white sm:w-[41%] sm:px-20 px-8 py-15 rounded-3xl shadow-xl overflow-y-auto h-4/5 z-30">
                 <div className="text-center underline font-semibold text-md maroon sticky w-full  top-0 mb-4">

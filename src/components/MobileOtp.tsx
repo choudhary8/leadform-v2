@@ -4,8 +4,8 @@ import { OtpInfo } from "./OtpInfo.tsx";
 
 interface Iparam {
   isOpen: boolean;
-  setOpenOtp;
-  setOpenPerson;
+  setOpenOtp:React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenPerson:React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const MobileOtp = ({ isOpen, setOpenOtp, setOpenPerson }: Iparam) => {
   const [timer, setTimer] = useState<number>(10);
@@ -49,7 +49,7 @@ export const MobileOtp = ({ isOpen, setOpenOtp, setOpenPerson }: Iparam) => {
     };
   }, [start]);
 
-  const otpVerify = (gotp, eotp) => {
+  const otpVerify = (gotp:number, eotp:React.RefObject<HTMLInputElement | null>) => {
     console.log(Math.floor(gotp), Number(eotp.current?.value));
 
     const otpverified = verifyOtp(

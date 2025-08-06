@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 interface Iparam{
     open:boolean,
     otp:number
-    setShowOtp
+    setShowOtp:React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const OtpInfo=({open=true, otp,setShowOtp}:Iparam)=>{

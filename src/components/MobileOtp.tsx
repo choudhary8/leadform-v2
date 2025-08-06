@@ -1,15 +1,29 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
+import { generateOtp, verifyOtp } from "../utils/otpUtils";
+import { OtpInfo } from "./otpInfo";
 
 interface Iparam{
     isOpen:boolean,
-    onClick:(event:React.MouseEvent<HTMLButtonElement>)=>void
+    setOpenOtp,
+    setOpenPerson
 }
-export const MobileOtp=({isOpen,onClick}:Iparam)=>{
+export const MobileOtp=({isOpen,setOpenOtp,setOpenPerson}:Iparam)=>{
     const [timer,setTimer]=useState<number>(10);
     const [start,setStart]=useState<boolean>(false);
     const [msg,setMsg]=useState<boolean>(true);
     const [btn,setBtn]=useState<boolean>(false);
+    const eotp=useRef<HTMLInputElement | null>(null);
+    const [gotp,setGotp]=useState<number>(0);
+    const [showOtp,setShowOtp]=useState<boolean>(false);
 
+    const sendOtp=useCallback(async ()=>{
+        await setGotp(generateOtp());
+        await setShowOtp(true);
+    },[])
+
+    useEffect(()=>{
+       sendOtp();
+    },[])
     useEffect(()=>{setStart(isOpen);},[isOpen])
     useEffect(()=>{if(timer<=0){setStart(false);setMsg(false); setBtn(true)}},[timer])
     // if(timer<0)
@@ -27,9 +41,25 @@ export const MobileOtp=({isOpen,onClick}:Iparam)=>{
             clearInterval(interval)
         }
     },[start])
+
+
+    const otpVerify=(gotp,eotp)=>{
+        console.log(Math.floor(gotp),Number(eotp.current?.value));
+        
+        const otpverified=verifyOtp(Math.floor(gotp),Number(eotp.current?.value));
+        if(otpverified){
+            setOpenOtp(false);setOpenPerson(true);
+        }
+        else{
+            alert('incorrect otp')
+        }
+    }
+
+
     return (
         <>
             {isOpen && <div className="fixed flex justify-center top-0 items-center bottom-0 z-2">
+                {showOtp&&<OtpInfo open={showOtp} setShowOtp={setShowOtp} otp={gotp}/>}
                 <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
                 <div className="bg-white sm:h-[45%] h-[55%] rounded-3xl pt-10 shadow-xl z-30 relative overflow-y-auto">
                     <div className="text-center underline font-semibold text-md maroon sticky top-0 mb-4">
@@ -38,12 +68,17 @@ export const MobileOtp=({isOpen,onClick}:Iparam)=>{
                     <div className="sm:px-20 px-8 py-5 w-full">
                         <div>We've sent an otp to your mobile number.</div>
                         <div>Please enter it below to verify and proceed.</div>
-                        <label htmlFor="otp"></label>
-                        <input className="mt-10" type="text" name="" id="otp" placeholder="xxxx" required/>
-                        {msg && <div>Didn't receive the otp? Resend in {Math.trunc(timer/60)}:{timer%60}</div>}
-                        {btn && <div><button className="text-blue-500 hover:text-blue-800 cursor-pointer" onClick={()=>{setMsg(true); setBtn(false); setTimer(10); setStart(true)}}>Resend</button></div>}
-                        {/* <div></div> */}
-                        <button type="submit" onClick={onClick} className="mt-6 py-4 px-10 bg-[#f27b1a] rounded-lg shadow-xl hover:bg-[#d36103] cursor-pointer">Verify</button>
+                        <form onSubmit={(event)=>{
+                            event.preventDefault();
+                            otpVerify(gotp,eotp);
+                        }}>
+                            <label htmlFor="otp"></label>
+                            <input ref={eotp} className="mt-10" type="text" name="" id="otp" placeholder="xxxx" required/>
+                            {msg && <div>Didn't receive the otp? Resend in {Math.trunc(timer/60)}:{timer%60}</div>}
+                            {btn && <div><button className="text-blue-500 hover:text-blue-800 cursor-pointer" onClick={()=>{setMsg(true); setBtn(false); setTimer(10); setStart(true);sendOtp();}}>Resend</button></div>}
+                            {/* <div></div> */}
+                            <button type="submit" className="mt-6 py-4 px-10 bg-[#f27b1a] rounded-lg shadow-xl hover:bg-[#d36103] cursor-pointer">Verify</button>
+                        </form>
                     </div>
                 </div>
                 </div>

@@ -65,11 +65,11 @@ export const CustomerForm=()=>{
     return (
         <div className="h-full flex justify-center items-center">
             <div className="fixed top-15 right-0 left-0 h-1/2 bg-[#e9822e] -z-1"></div>
-          <InfoTab onClick={()=>{setOpenCustomer(true)}}></InfoTab>
-          <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={(event)=>{ event.preventDefault(); setOpenCustomer(false); setOpenOtp(true)}} />
-          <MobileOtp isOpen={openOtp} onClick={(event)=>{ event.preventDefault(); setOpenOtp(false); setOpenPerson(true)}}/>
-          <PersonDetails mobCode={mobCode} countriesNames={countriesNames} isOpen={openPerson} onClick={(event)=>{event.preventDefault(); setOpenPerson(false);setThank(true)}} />
-          <ThankYou isOpen={openThank} />
+            <InfoTab onClick={()=>{setOpenCustomer(true)}}></InfoTab>
+            <CustomerDetails mobCode={mobCode} isOpen={openCustomer} onClick={(event)=>{ event.preventDefault(); setOpenCustomer(false); setOpenOtp(true)}} />
+            <MobileOtp isOpen={openOtp} setOpenOtp={setOpenOtp} setOpenPerson={setOpenPerson}/>
+            <PersonDetails mobCode={mobCode} countriesNames={countriesNames} isOpen={openPerson} onClick={(event)=>{event.preventDefault(); setOpenPerson(false);setThank(true)}} />
+            <ThankYou isOpen={openThank} />
         </div>
     )
 }

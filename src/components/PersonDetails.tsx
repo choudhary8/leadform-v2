@@ -14,7 +14,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
     const [countrySelected,setCountrySelected]=useState<string>('');
     const [isLoading, setIsLoading]=useState<boolean>(true)
     useEffect(()=>{
-        const timer=setTimeout(()=>{
+        setTimeout(()=>{
             setIsLoading(!isLoading);
         },2000)
 

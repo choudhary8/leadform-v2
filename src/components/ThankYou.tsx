@@ -6,7 +6,7 @@ interface Iparam{
 export const ThankYou=({isOpen}:Iparam)=>{
     const [isLoading, setIsLoading]=useState<boolean>(true)
     useEffect(()=>{
-        const timer=setTimeout(()=>{
+        setTimeout(()=>{
             setIsLoading(!isLoading);
         },1000)
 

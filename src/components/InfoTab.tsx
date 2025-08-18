@@ -8,11 +8,11 @@ interface propInterface{
 }
 export const InfoTab=({onClick}:propInterface)=>{
     return (
-        <div className="py-8 sm:px-20 px-8 mt-24 sm:mt-0 rounded-3xl shadow-xl bg-white overflow-y-auto">
+        <div className="py-8 sm:px-16 px-8 mt-24 sm:mt-0 rounded-xl shadow-xl bg-white overflow-y-auto">
             <div className="flex">
                 <div className="maroon font-bold text-2xl pb-1 border-b-1 mb-2">NRI Referral Form</div>
             </div>
-            <div className="bg-[#d75b15] font-[500] text-2xl text-white p-4 mb-4">Share your banking experience with your NRI family and friends</div>
+            <div className="bg-[#d75b15] font-[500] text-2xl rounded-lg  text-white p-4 mb-4">Share your banking experience with your NRI family and friends</div>
 
             <div className="actionInfo my-2 relative">
                 <div className="flex items-center sm:w-2/3">

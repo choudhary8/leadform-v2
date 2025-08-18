@@ -19,6 +19,7 @@ export const MobileOtp = ({ isOpen, setOpenOtp, setOpenPerson }: Iparam) => {
   const sendOtp = useCallback(async () => {
     await setGotp(generateOtp());
     await setShowOtp(true);
+    // await senDOtp(0);
   }, []);
 
   useEffect(() => {
@@ -67,18 +68,18 @@ export const MobileOtp = ({ isOpen, setOpenOtp, setOpenPerson }: Iparam) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed flex justify-center top-0 items-center bottom-0 z-2">
+        <div className="fixed flex w-full sm:justify-center top-0 sm:items-center items-end bottom-0 z-2">
           {showOtp && (
             <OtpInfo open={showOtp} setShowOtp={setShowOtp} otp={gotp} />
           )}
           <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
-          <div className="bg-white sm:h-[45%] h-[55%] rounded-3xl pt-10 shadow-xl z-30 relative overflow-y-auto">
+          <div className="bg-white sm:h-[42%] h-[55%] w-[35%] rounded-xl pt-10 shadow-xl z-30 relative overflow-y-auto">
             <div className="text-center underline font-semibold text-md maroon sticky top-0 mb-4">
               <div className="absolute -top-10 right-0 left-0 bg-gray-200  py-4">
                 OTP Verification
               </div>
             </div>
-            <div className="sm:px-20 px-8 py-5 w-full">
+            <div className="sm:px-16 px-8 py-3 w-full">
               <div>We've sent an otp to your mobile number.</div>
               <div>Please enter it below to verify and proceed.</div>
               <form
@@ -106,7 +107,7 @@ export const MobileOtp = ({ isOpen, setOpenOtp, setOpenPerson }: Iparam) => {
                 {btn && (
                   <div>
                     <button
-                      className="text-blue-500 hover:text-blue-800 cursor-pointer"
+                      className="text-blue-500 hover:text-blue-800 cursor-pointer resend"
                       onClick={() => {
                         setMsg(true);
                         setBtn(false);
@@ -122,7 +123,7 @@ export const MobileOtp = ({ isOpen, setOpenOtp, setOpenPerson }: Iparam) => {
                 {/* <div></div> */}
                 <button
                   type="submit"
-                  className="mt-6 py-4 px-10 bg-[#f27b1a] rounded-lg shadow-xl hover:bg-[#d36103] cursor-pointer"
+                  className="mt-4 py-4 px-10 bg-[#f27b1a] rounded-lg shadow-xl hover:bg-[#d36103] cursor-pointer"
                 >
                   Verify
                 </button>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface detailsInterface{
     [code:string]:string
@@ -12,13 +12,21 @@ interface propInterface{
 
 export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterface)=>{
     const [countrySelected,setCountrySelected]=useState<string>('');
+    const [isLoading, setIsLoading]=useState<boolean>(true)
+    useEffect(()=>{
+        const timer=setTimeout(()=>{
+            setIsLoading(!isLoading);
+        },2000)
+
+        // return clearTimeout(timer);
+    },[isOpen])
     return (
         <>
-        {isOpen && <div className="person fixed flex justify-center top-0 items-center bottom-0 z-2">
+        {isOpen && <div className="person fixed flex sm:justify-center top-0 sm:items-center items-end bottom-0 z-2">
             <div className="fixed top-0 bottom-0 right-0 left-0 bg-black/70 z-20"></div>
-            <form onSubmit={onClick} className="bg-white sm:w-[41%] sm:px-20 px-8 py-15 rounded-3xl shadow-xl overflow-y-auto h-4/5 z-30">
+            {!isLoading?<div className="z-70 loader"></div>:<form onSubmit={onClick} className="bg-white sm:w-[38%] sm:px-18 px-8 py-15 rounded-xl shadow-xl overflow-y-auto h-4/5 sm:h-[65%] z-30">
                 <div className="text-center underline font-semibold text-md maroon sticky w-full  top-0 mb-4">
-                    <div className="absolute -top-15 -left-20 -right-20 bg-gray-200  py-4">Details of the person you wish to refer</div>
+                    <div className="absolute -top-15 -left-18 -right-18 bg-gray-200  py-4">Details of the person you wish to refer</div>
                 </div>
                 <label htmlFor="personFirstName">First Name<span className="text-red-500 font-thin">*</span></label>
                 <input type="text" id="personFirstName" placeholder="Please Enter First Name" required/>
@@ -68,7 +76,7 @@ export const PersonDetails=({mobCode,countriesNames,isOpen,onClick}:propInterfac
                 </div>
 
                 <button type="submit" className="bg-[#f27b1a] mt-12 px-14 py-4 rounded-md text-white shadow-xl hover:bg-[#d36103] cursor-pointer">Sumbit</button>
-            </form>
+            </form>}
         </div>
         }
         </>

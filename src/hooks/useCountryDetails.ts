@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 
 interface countryInterface{
-    "names.common":string,
-    "codes.alpha_2":string,
+    "names":{"common":string},
+    "codes":{"alpha_2":string},
     "calling_codes":string[]
 }
 
@@ -58,10 +58,10 @@ export const useCountryDetails=()=>{
                 }
 
                 countries.forEach((country:countryInterface)=>{
-                    const countryCode=country["codes.alpha_2"];
-                    const countryName=country["names.common"];
+                    const countryCode=country.codes.alpha_2;
+                    const countryName=country.names.common;
                     const callingCode=country.calling_codes?.[0] ? `+${country.calling_codes[0]}` : "";
-
+                    
                     if(!countryCode || !countryName){
                         return;
                     }
